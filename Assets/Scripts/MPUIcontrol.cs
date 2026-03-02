@@ -38,6 +38,7 @@ public class MPUIcontrol : MonoBehaviourPunCallbacks
   public  void Showdeadpanel()
     {
          deadpanel.SetActive(true);
+        
     }
 
    public  void Hidedeadpanel()
@@ -48,6 +49,7 @@ public class MPUIcontrol : MonoBehaviourPunCallbacks
    public void Showmatchoverpanel()
     {
         Matchoverpanel.SetActive(true);
+        ActivateMouse();
         StartCoroutine(finalscoreboard());
     }
     public void Hidematchoverpanel()
@@ -93,5 +95,17 @@ public class MPUIcontrol : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene(0);
     }
+   
+           void ActivateMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+         Cursor.visible = true;
+    }
 
+     void DeactivateMouse()
+    {
+        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=false;
+    }
+    
 }

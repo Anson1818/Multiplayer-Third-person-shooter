@@ -27,6 +27,8 @@ public class MultiplayerLevelController : MonoBehaviourPunCallbacks
          mpui=GetComponent<MPUIcontrol>();
 
          instance=this;
+
+       DeactivateMouse();  
          
     }
 
@@ -34,6 +36,8 @@ public class MultiplayerLevelController : MonoBehaviourPunCallbacks
     {
         base.OnDisable();
         Health.OnMPplayerdead -= HandlePlayerKilled;
+
+        ActivateMouse();
         
     }
 
@@ -161,6 +165,18 @@ public class MultiplayerLevelController : MonoBehaviourPunCallbacks
    
 }
 
+      void ActivateMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+         Cursor.visible = true;
+    }
+
+     void DeactivateMouse()
+    {
+        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=false;
+    }
+    
    
 
 }

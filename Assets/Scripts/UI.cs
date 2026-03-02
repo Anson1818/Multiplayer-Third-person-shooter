@@ -67,11 +67,15 @@ public class UI : MonoBehaviour
     {
         losepanel.SetActive(true);
         Time.timeScale=0f;
+        
+        ActivateMouse();
     }
     void Winscreen()
     {
         winpanel.SetActive(true);
         Time.timeScale=0f;
+
+        ActivateMouse();
     }
     public void Loadhomescreen()
     {
@@ -92,12 +96,26 @@ public class UI : MonoBehaviour
     {
          Pausepanel.SetActive(true);
          Time.timeScale=0f;
+
+         ActivateMouse();
     }
     public void Resume()
     {
         Pausepanel.SetActive(false);
         Time.timeScale=1f;
+        DeactivateMouse();
+    }
+      
+      void ActivateMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+         Cursor.visible = true;
     }
 
+     void DeactivateMouse()
+    {
+        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=false;
+    }
     
 }
